@@ -13,6 +13,8 @@ unsigned int Problem_4();
 unsigned int Problem_5();
 unsigned int Problem_6();
 unsigned int Problem_7();
+unsigned int Problem_8();
+unsigned int Problem_9();
 
 
 int main()
@@ -79,6 +81,18 @@ int main()
 
 		case 7:
 			LOG(Problem_7());
+			WAIT;
+
+			break;
+
+		case 8:
+			LOG(Problem_8());
+			WAIT;
+
+			break;
+
+		case 9:
+			LOG(Problem_9());
 			WAIT;
 
 			break;
