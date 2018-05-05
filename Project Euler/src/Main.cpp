@@ -15,6 +15,7 @@ unsigned int Problem_6();
 unsigned int Problem_7();
 unsigned int Problem_8();
 unsigned int Problem_9();
+unsigned int Problem_10();
 
 
 int main()
@@ -93,6 +94,12 @@ int main()
 
 		case 9:
 			LOG(Problem_9());
+			WAIT;
+
+			break;
+
+		case 10:
+			LOG(Problem_10());
 			WAIT;
 
 			break;

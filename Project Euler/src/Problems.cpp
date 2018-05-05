@@ -106,14 +106,15 @@ bool IsFactorOf(long long int factor, long long int number)
 
 bool IsPrime(long long int number)
 {
-	if (number == 2 || number == 3 || number == 5)
+	/*
+	if (number == 2 || number == 3 || number == 5 || number == 7 || number == 11 || number == 13)
 	{
 		return true;
 	}
 	
 	else
 	{
-		if (number % 2 == 0 || number % 3 == 0 || number % 5 == 0)
+		if (number % 2 == 0 || number % 3 == 0 || number % 5 == 0 || number % 7 == 0 || number % 11 == 0 || number % 13 == 0)
 		{
 			return false;
 		}
@@ -135,6 +136,8 @@ bool IsPrime(long long int number)
 	}
 
 	return true;
+
+	*/
 
 	/*
 	if (number <= 1)
@@ -166,6 +169,31 @@ bool IsPrime(long long int number)
 
 	return true;
 	*/
+
+	if (number == 2)
+	{
+		return true;
+	}
+
+	if (number == 0 || number == 1 || number % 2 == 0)
+	{
+		return false;
+	}
+
+	for (long long int i = 3; i <= sqrt(number); i++)
+	{
+		if (i % 2 == 0)
+		{
+			continue;
+		}
+
+		if (number % i == 0)
+		{
+			return false;
+		}
+	}
+
+	return true;
 }
 
 long long int Problem_3()
@@ -173,17 +201,12 @@ long long int Problem_3()
 	Description_3();
 	
 	long long int target_number = 600851475143LL;
-	
-	for (long long i = target_number; i > 0; i--)
-	{
-		if (IsFactorOf(i, target_number))
-		{
-			if (IsPrime(i))
-			{
-				return i;
-			}
-		}
+	long long int factor = 2;
+	long long int last_factor = 1;
 
+	/*
+	for (long long i = target_number; i > 0; i--)
+	{		
 		if (i == target_number)
 		{
 			i = target_number / 2 + 1;
@@ -198,9 +221,78 @@ long long int Problem_3()
 		{
 			i = target_number / 4 + 1;
 		}
+		
+		else if (i == target_number / 4)
+		{
+			i = target_number / 5 + 1;
+		}
+		
+		else if (i == target_number / 5)
+		{
+			i = target_number / 6 + 1;
+		}
+		
+		else if (i == target_number / 6)
+		{
+			i = target_number / 7 + 1;
+		}
+
+	}
+	*/
+
+	/*
+	for (long long int i = 3; i < target_number; i += 2)
+	{
+		if (target_number % i == 0)
+		{
+			if (IsPrime(i))
+			{
+				if (i > biggest_pf)
+				{
+					biggest_pf = i;
+				}
+			}
+		}
 	}
 
-	return 1;
+	return biggest_pf;
+	*/
+
+	if (target_number % 2 == 0)
+	{
+		target_number /= 2;
+		last_factor = 2;
+
+		while (target_number % 2 == 0)
+		{
+			target_number /= 2;
+		}
+	}
+
+	else
+	{
+		last_factor = 1;
+	}
+
+	factor = 3;
+
+	while (target_number > 1)
+	{
+		if (target_number % factor == 0)
+		{
+			last_factor = factor;
+			target_number /= factor;
+
+			while (target_number % factor == 0)
+			{
+				target_number /= factor;
+			}
+		}
+
+		factor += 2;
+	}
+
+	return last_factor;
 }
 
 
@@ -344,7 +436,7 @@ unsigned int GetNextPrime(unsigned int from_number)
 	{
 		from_number += 1;
 
-		if (IsPrime(from_number))
+		if (IsPrime(from_number))  // Uses function "IsPrime(long long int number)" from Problem #3
 		{
 			return from_number;
 		}
@@ -458,4 +550,38 @@ unsigned int Problem_9()
 	}
 
 	return 0;
+}
+
+
+
+///// [PROBLEM #10] - SUM OF ALL PRIMES BELOW 2,000,000 /////
+
+void Description_10()
+{
+	LOG("Find the sum of all the prime numbers below 2,000,000.\n");
+}
+
+unsigned int Problem_10()
+{
+	Description_10();
+
+	unsigned int target_num = 2000000U;
+	unsigned int total = 0U;
+	unsigned int next_prime = 1U;
+
+	while (true)
+	{
+
+		next_prime = GetNextPrime(next_prime);  // Uses function "GetNextPrime(unsigned int from_number)" from Problem #7
+
+		if (next_prime < target_num)
+		{
+			total += next_prime;
+		}
+
+		else
+		{
+			return total;
+		}
+	}
 }
