@@ -13,7 +13,7 @@ unsigned int Problem_4();
 unsigned int Problem_5();
 unsigned int Problem_6();
 unsigned int Problem_7();
-unsigned int Problem_8();
+long long int Problem_8();
 unsigned int Problem_9();
 long long int Problem_10();
 long long int Problem_12();
