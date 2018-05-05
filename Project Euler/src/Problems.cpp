@@ -561,27 +561,20 @@ void Description_10()
 	LOG("Find the sum of all the prime numbers below 2,000,000.\n");
 }
 
-unsigned int Problem_10()
+long long int Problem_10()
 {
 	Description_10();
 
-	unsigned int target_num = 2000000U;
-	unsigned int total = 0U;
-	unsigned int next_prime = 1U;
+	long long int target_num = 2000000U;
+	long long int total = 2U;
 
-	while (true)
+	for (long long int i = 3; i < target_num; i += 2)
 	{
-
-		next_prime = GetNextPrime(next_prime);  // Uses function "GetNextPrime(unsigned int from_number)" from Problem #7
-
-		if (next_prime < target_num)
+		if (IsPrime(i))
 		{
-			total += next_prime;
-		}
-
-		else
-		{
-			return total;
+			total += i;
 		}
 	}
+
+	return total;
 }
