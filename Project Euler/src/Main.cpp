@@ -16,6 +16,7 @@ unsigned int Problem_7();
 unsigned int Problem_8();
 unsigned int Problem_9();
 long long int Problem_10();
+long long int Problem_12();
 
 
 int main()
@@ -100,6 +101,12 @@ int main()
 
 		case 10:
 			LOG(Problem_10());
+			WAIT;
+
+			break;
+
+		case 12:
+			LOG(Problem_12());
 			WAIT;
 
 			break;
