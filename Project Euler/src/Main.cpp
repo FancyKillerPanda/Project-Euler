@@ -18,6 +18,7 @@ unsigned int Problem_9();
 long long int Problem_10();
 long long int Problem_12();
 std::string Problem_13();
+unsigned int Problem_14();
 
 
 int main()
@@ -114,6 +115,12 @@ int main()
 
 		case 13:
 			LOG(Problem_13());
+			WAIT;
+
+			break;
+
+		case 14:
+			LOG(Problem_14());
 			WAIT;
 
 			break;
