@@ -6,5 +6,6 @@
 #include <cmath>
 #include <string>
 #include <numeric>
+#include <InfInt.h>
 
 #define LOG(x) std::cout << x << std::endl

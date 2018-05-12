@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "Base.h"
 
 #define LOG(x) std::cout << x << std::endl
 #define CLEAR system("CLS")
@@ -19,6 +20,8 @@ long long int Problem_10();
 long long int Problem_12();
 std::string Problem_13();
 unsigned int Problem_14();
+unsigned int Problem_15();
+InfInt Problem_16();
 
 
 int main()
@@ -121,6 +124,18 @@ int main()
 
 		case 14:
 			LOG(Problem_14());
+			WAIT;
+
+			break;
+
+		case 15:
+			LOG(Problem_15());
+			WAIT;
+
+			break;
+
+		case 16:
+			LOG(Problem_16());
 			WAIT;
 
 			break;
