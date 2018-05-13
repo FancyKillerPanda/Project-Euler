@@ -20,7 +20,7 @@ long long int Problem_10();
 long long int Problem_12();
 std::string Problem_13();
 unsigned int Problem_14();
-unsigned int Problem_15();
+InfInt Problem_15();
 InfInt Problem_16();
 
 
